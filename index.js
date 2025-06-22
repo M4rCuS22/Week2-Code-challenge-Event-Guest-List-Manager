@@ -8,8 +8,8 @@ const guestList = document.getElementById('guest-list');
 let guest = [];
 
 form.addEventListener('submit', function (e) {
-    console.log('Form submitted')
-    e.preventDefault();
+  e.preventDefault();
+  console.log("Form submitted");
 
     const name = nameInput.value.trim();
     const category = categoryInput.value;
@@ -20,15 +20,7 @@ form.addEventListener('submit', function (e) {
         return;
     }
 
-    const newGuest = {
-        Id: Date.now(),
-        name,
-        category,
-        attending: true,
-        timestamp: new Date().toLocaleTimeString()
-    };
-
-    guest.push(newGuest);
+    guest.push({ id: Date.now(), name, category, attending: true});
     renderGuest();
     form.reset();
 });
