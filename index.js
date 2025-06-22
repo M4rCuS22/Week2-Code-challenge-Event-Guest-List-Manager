@@ -10,6 +10,7 @@ let guest = [];
 form.addEventListener('submit', function (e) {
     console.log('Form submitted')
     e.preventDefault();
+
     const name = nameInput.value.trim();
     const category = categoryInput.value;
 
@@ -34,7 +35,7 @@ form.addEventListener('submit', function (e) {
 
 function renderGuest() {
     guestList.innerHTML = ``;
-ariaValueMax
+
     guestList.forEach(guest => {
         const li = document.createElement('li');
         li.className = 'guest-item';
@@ -44,11 +45,9 @@ ariaValueMax
 
         const tag = document.createElement('span');
         tag.className = `tag ${guest.category}`;
-        tag.textContent = guest.name;
+        tag.textContent = guest.category;
 
-        const nameSpan = document.createElement('span');
-        nameSpan.textContent = guest.name;
-        nameSpan.appendChild(tag);
+        nameSpan.appendCHild(tag);
         header.appendChild(nameSpan);
 
         const time = document.createElement('small');
@@ -60,17 +59,17 @@ ariaValueMax
         const actions = document.createElement('div');
         actions.className = 'actions';
 
-        const rsvBtn = document.createElement('button');
-        rsvBtn.textContent = guest.attending ? 'Attending' : 'Not Attending'
-        rsvBtn.style.background = guest.attending ? '#c8e6c9' : '#ffcdd2';
-        rsvBtn.onclick = () => {
+        const rsvpBtn = document.createElement('button');
+        rsvpBtn.textContent = guest.attending ? 'Attending' : 'Not Attending'
+        rsvpBtn.style.background = guest.attending ? '#c8e6c9' : '#ffcdd2';
+        rsvpBtn.onclick = () => {
             guest.attending = !guest.attending;
             renderGuests();
-        }
+        };
 
-        const deleteBtn = document.createElement('button');
-        deleteBtn.textContent = 'Remove';
-        deleteBtn.onclick = () => {
+        const editBtn = document.createElement('button');
+        editBtn.textContent = 'Edit';
+        editBtn.onclick = () => {
             const newName = prompt('Enter new name', guest.name);
             if(newName) {
                 guest.name = newName.trim();
@@ -78,7 +77,14 @@ ariaValueMax
             }
         };
 
-        actions.appendChild(rsvBtn);
+        const deleteBtn = document.createElement('button');
+        deleteBtn.textContent = 'Remove';
+        deleteBtn.onclick = () => {
+            guests = guests.filter(g => g.Id !== guest.Id);
+            renderGuests();
+        }
+
+        actions.appendChild(rsvpBtn);
         actions.appendChild(editBtn);
         actions.appendChild(deleteBtn);
 
