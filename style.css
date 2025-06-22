@@ -1,0 +1,67 @@
+body {
+    font-family: Arial, sans-serif;
+    background: rgb(209, 201, 201);
+    padding: 20px;
+}
+
+.container {
+    background: #fff;
+    border-radius: 10px;
+    padding: 20px;
+    max-width: 500px;
+    margin: auto;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+form {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+}
+
+input, select, button {
+    padding: 8px;
+    font-size: 17px;
+}
+
+#guest-list {
+    list-style: none;
+    padding: 0;
+}
+
+.guest-header {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    border-bottom: 1px solid white;
+    padding: 10px 0;
+}
+
+.guest-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.tag {
+    padding: 3px 6px;
+    border-radius: 5px;
+    color: white;
+    font-size: 12px;
+    margin-left: 10px;
+}
+
+.Friend {background: #007bff;}
+.Family {background: #28a745;}
+.Colleague {background: #ffc107;}
+
+.action {
+    display: flex;
+    gap: 8px;
+    margin-top: 5px;
+}
+
+button {
+    cursor: pointer;
+}
